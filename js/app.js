@@ -45,7 +45,7 @@ Picture.prototype.render = function () {
 
 $.ajax('/data/page-1.json', { method: 'GET', dataType: 'JSON' })
   .then(data => {
-    data.forEach(function (newPic) {
+    data.forEach((newPic) => {
       let pic = new Picture(newPic);
       pic.render();
     });
