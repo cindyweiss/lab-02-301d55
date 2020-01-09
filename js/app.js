@@ -34,21 +34,25 @@ Picture.prototype.render = function () {
   $newSection.find('img').attr('src', this.image_url);
   $newSection.find('img').attr('alt', this.title);
   // append to the main
-  $('main').append($newSection);
+  $('#page-template').append($newSection);
 };
 
 
-$.ajax('/data/page-1.json', { method: 'GET', dataType: 'JSON' })
-  .then(data => {
-    data.forEach((newPic) => {
-      let pic = new Picture(newPic);
-      pic.render();
 
+function loadPage(pageNum) {
+  console.log('page num is', pageNum)
+  $.ajax(`/data/page-${pageNum}.json`, { method: 'GET', dataType: 'JSON' })
+    .then(data => {
+      console.log(data);
+      data.forEach((newPic) => {
+        let pic = new Picture(newPic);
+        pic.render();
+
+      });
+      populateFilter();
+      generateDropDown();
     });
-    populateFilter();
-    generateDropDown();
-  });
-
+}
 
 //create a function that populates the keyword filter.
 
@@ -70,6 +74,31 @@ function generateDropDown() {
 }
 
 $('select').on('change', showKeywordPic);
+$('ul').on('click', handlePageClick);
+
+function handlePageClick() {
+
+  // clear the container 
+  $('#page-template').empty();
+  //console.log('i am working');
+  let selectedPage = $(event.target).val();
+  //console.log(selectedPage)
+  if (selectedPage === 1) {
+    console.log('you clicked  1')
+    loadPage(1);
+  } else if (selectedPage === 2) {
+    console.log('you clicked  2')
+    loadPage(2);
+  }
+
+  // IF page 1 is clicked load page 1
+  // loadPage(1)
+
+  // IF paga 2 is clicked load page 2
+  // loadPage(2)
+
+}
+
 
 function showKeywordPic() {
   // get rid of everything is there now
@@ -85,5 +114,5 @@ function showKeywordPic() {
 
 
 }
-
+loadPage(1);
 
