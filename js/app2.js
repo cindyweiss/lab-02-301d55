@@ -38,7 +38,7 @@ Picture.prototype.render = function () {
 };
 
 
-$.ajax('/data/page-1.json', { method: 'GET', dataType: 'JSON' })
+$.ajax('/data/page-2.json', { method: 'GET', dataType: 'JSON' })
   .then(data => {
     data.forEach((newPic) => {
       let pic = new Picture(newPic);
