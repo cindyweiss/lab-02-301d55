@@ -1,31 +1,52 @@
-section{
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  }
 
- img {
+footer{
+  float: left: ;
+}
+
+#photo-template{
+display: none;
+}
+
+
+section{
+  display: block;
+  float: left;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
    min-width: 200px;
    max-width: 200px;
    min-height: 200px;
    max-height: 200px;
-   }
+   padding: 20px;
+   margin: 20px;
+}
 
- p{
+p{
    width: 200px;
    height: 80px;
    text-align: center;
    overflow: scroll;
-  
- }
+   padding: 5px;
+   border: solid 10px;
+}
 
- h1{
+h1{
    text-align: center;
+   text-size-adjust: 100px;
+   margin-top: 250px;
+}
 
- }
-
- h2{
+h2{
    max-width: 200px;
    text-align: center;
-   
- 
+   padding: 10px;
+   margin: 20px;
+ }  
+
+footer{
+  float: left;
+  text-align: right;
+}
