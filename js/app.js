@@ -41,7 +41,7 @@ Picture.prototype.render = function () {
 
 function loadPage(pageNum) {
   console.log('page num is', pageNum)
-  $.ajax(`data/page-${pageNum}.json`, { method: 'GET', dataType: 'JSON' })
+  $.ajax(`../data/page-${pageNum}.json`, { method: 'GET', dataType: 'JSON' })
     .then(data => {
       console.log(data);
       data.forEach((newPic) => {
